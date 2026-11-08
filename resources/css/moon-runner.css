@@ -1,0 +1,1353 @@
+.runner-page {
+    --runner-ink: #1d2b3c;
+    --runner-muted: #78838b;
+    --runner-line: #e4e6df;
+    --runner-mint: #dcebe1;
+    --runner-orange: #ed9866;
+    min-height: 100vh;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            ellipse at 86% 9%,
+            rgb(223 235 223 / 52%),
+            transparent 26rem
+        ),
+        #f7f7f2;
+    color: var(--runner-ink);
+    font-family: var(--font-sans);
+}
+
+.runner-topbar,
+.runner-content,
+.runner-footer {
+    width: min(1180px, calc(100% - 88px));
+    margin-inline: auto;
+}
+
+.runner-topbar {
+    display: flex;
+    height: 92px;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--runner-line);
+}
+
+.runner-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    color: var(--runner-ink);
+    font-size: 15px;
+    font-weight: 750;
+    letter-spacing: -0.045em;
+    text-decoration: none;
+}
+
+.runner-brand-light {
+    color: #829087;
+    font-weight: 500;
+}
+
+.runner-brand-mark {
+    display: grid;
+    width: 34px;
+    height: 34px;
+    place-items: center;
+    border-radius: 12px;
+    background: var(--runner-ink);
+    color: #edf2e8;
+}
+
+.runner-topbar-meta {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    color: #8a928f;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+}
+
+.runner-live-dot,
+.runner-caption-dot,
+.runner-footer-center span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #81a98e;
+    box-shadow: 0 0 0 3px rgb(129 169 142 / 14%);
+}
+
+.runner-topbar-divider {
+    width: 1px;
+    height: 12px;
+    margin-inline: 5px;
+    background: #dce0d9;
+}
+
+.runner-topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.runner-theme-button {
+    display: grid;
+    width: 35px;
+    height: 35px;
+    flex: 0 0 auto;
+    place-items: center;
+    border: 1px solid #e6e9e2;
+    border-radius: 9px;
+    background: rgb(255 254 250 / 75%);
+    color: #64746d;
+    cursor: pointer;
+    transition:
+        background 160ms ease,
+        color 160ms ease,
+        border-color 160ms ease;
+}
+
+.runner-theme-button:hover {
+    border-color: #d3dfd5;
+    background: #edf3ed;
+    color: #4b6955;
+}
+
+.runner-theme-button:focus-visible {
+    outline: 3px solid #e69b70;
+    outline-offset: 3px;
+}
+
+.runner-about-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #576675;
+    font-size: 12px;
+    font-weight: 650;
+    text-decoration: none;
+    transition: color 160ms ease;
+}
+
+.runner-about-link:hover {
+    color: #dd835e;
+}
+
+.runner-content {
+    display: grid;
+    grid-template-columns: minmax(255px, 0.68fr) minmax(0, 1.55fr);
+    align-items: center;
+    gap: clamp(42px, 7vw, 100px);
+    padding-block: clamp(46px, 8vh, 90px) clamp(58px, 9vh, 100px);
+}
+
+.runner-intro {
+    padding-block: 10px;
+}
+
+.runner-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #87918a;
+    font-size: 10px;
+    font-weight: 750;
+    letter-spacing: 0.18em;
+}
+
+.runner-eyebrow span {
+    display: grid;
+    width: 27px;
+    height: 27px;
+    place-items: center;
+    border: 1px solid #dfe4dc;
+    border-radius: 50%;
+    color: #d58561;
+    font-size: 9px;
+    letter-spacing: 0;
+}
+
+.runner-intro h1 {
+    margin: 24px 0 17px;
+    font-size: clamp(45px, 5.1vw, 69px);
+    font-weight: 570;
+    letter-spacing: -0.075em;
+    line-height: 0.99;
+}
+
+.runner-intro h1 span {
+    color: #7d9a85;
+}
+
+.runner-intro-copy {
+    max-width: 325px;
+    margin: 0;
+    color: #75808a;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.runner-stats {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 37px;
+}
+
+.runner-stat {
+    display: grid;
+    grid-template-columns: 31px auto;
+    grid-template-rows: auto auto;
+    column-gap: 9px;
+    align-items: center;
+}
+
+.runner-stat-icon {
+    display: grid;
+    width: 31px;
+    height: 31px;
+    grid-row: 1 / span 2;
+    place-items: center;
+    border-radius: 10px;
+    background: #f7e9dd;
+    color: #dc8c61;
+}
+
+.runner-stat-icon--mint {
+    background: #e4eee5;
+    color: #7e9c85;
+}
+
+.runner-stat-label {
+    color: #929b99;
+    font-size: 8px;
+    font-weight: 750;
+    letter-spacing: 0.12em;
+}
+
+.runner-stat strong {
+    margin-top: 1px;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    font-variant-numeric: tabular-nums;
+}
+
+.runner-stat strong small {
+    color: #9aa39d;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.runner-stat-rule {
+    width: 1px;
+    height: 34px;
+    background: #e2e5df;
+}
+
+.runner-howto {
+    margin-top: 43px;
+    padding-top: 20px;
+    border-top: 1px solid var(--runner-line);
+}
+
+.runner-howto-heading {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 15px;
+    color: #8a9490;
+    font-size: 9px;
+    font-weight: 750;
+    letter-spacing: 0.15em;
+}
+
+.runner-howto-heading svg {
+    color: #d98b65;
+}
+
+.runner-instruction {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 9px;
+    color: #727d86;
+    font-size: 11px;
+}
+
+.runner-key {
+    display: inline-flex;
+    min-width: 62px;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 5px 7px;
+    border: 1px solid #e2e5de;
+    border-bottom-width: 2px;
+    border-radius: 6px;
+    background: #fbfbf8;
+    color: #576676;
+}
+
+.runner-key--wide {
+    min-width: 62px;
+}
+
+.runner-key span {
+    font-size: 7px;
+    font-weight: 750;
+    letter-spacing: 0.08em;
+}
+
+.runner-game-card {
+    min-width: 0;
+    padding: 20px;
+    border: 1px solid #e8e9e3;
+    border-radius: 19px;
+    background: #fffefa;
+    box-shadow:
+        0 18px 55px rgb(35 49 60 / 7%),
+        0 2px 6px rgb(35 49 60 / 3%);
+}
+
+.runner-game-card:fullscreen {
+    box-sizing: border-box;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    flex-direction: column;
+    padding: clamp(14px, 2vw, 28px);
+    border: 0;
+    border-radius: 0;
+    background: #fffefa;
+}
+
+.runner-game-card:fullscreen::backdrop {
+    background: #f7f7f2;
+}
+
+.runner-game-card:fullscreen .runner-stage {
+    height: auto;
+    min-height: 0;
+    flex: 1;
+    border-radius: 14px;
+}
+
+.runner-fullscreen-button {
+    display: grid;
+    width: 35px;
+    height: 35px;
+    flex: 0 0 auto;
+    place-items: center;
+    border: 1px solid #e6e9e2;
+    border-radius: 9px;
+    background: #fffefa;
+    color: #64746d;
+    cursor: pointer;
+    transition:
+        background 160ms ease,
+        color 160ms ease,
+        border-color 160ms ease;
+}
+
+.runner-fullscreen-button:hover {
+    border-color: #d3dfd5;
+    background: #f0f5ef;
+    color: #4b6955;
+}
+
+.runner-fullscreen-button:focus-visible {
+    outline: 3px solid #e69b70;
+    outline-offset: 3px;
+}
+
+.runner-fullscreen-error {
+    margin: 4px 3px 0;
+    color: #a64e43;
+    font-size: 11px;
+}
+
+.runner-card-header {
+    display: flex;
+    min-height: 53px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 0 4px 16px;
+}
+
+.runner-card-title {
+    display: grid;
+    gap: 3px;
+}
+
+.runner-card-kicker {
+    color: #929c96;
+    font-size: 8px;
+    font-weight: 750;
+    letter-spacing: 0.16em;
+}
+
+.runner-card-title strong {
+    font-size: 16px;
+    font-weight: 680;
+    letter-spacing: -0.04em;
+}
+
+.runner-scoreboard {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.runner-scoreboard > div:not(.runner-score-divider) {
+    display: grid;
+    gap: 3px;
+    text-align: right;
+}
+
+.runner-scoreboard span {
+    color: #969f9a;
+    font-size: 7px;
+    font-weight: 750;
+    letter-spacing: 0.14em;
+}
+
+.runner-scoreboard strong {
+    color: #344356;
+    font-size: 12px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.08em;
+}
+
+.runner-score-divider {
+    width: 1px;
+    height: 24px;
+    background: #e7e9e2;
+}
+
+.runner-stage {
+    position: relative;
+    --runner-sky-first: #eaf1e9;
+    --runner-sky-middle: #e5eee7;
+    --runner-sky-last: #d7e6df;
+    --runner-scene-glow: rgb(188 214 197 / 40%);
+    --runner-ground-first: #d2e0d7;
+    --runner-ground-last: #c8dacf;
+    height: clamp(245px, 29vw, 326px);
+    overflow: hidden;
+    border-radius: 12px;
+    background:
+        radial-gradient(
+            ellipse at 71% 112%,
+            var(--runner-scene-glow),
+            transparent 39%
+        ),
+        linear-gradient(
+            160deg,
+            var(--runner-sky-first) 0%,
+            var(--runner-sky-middle) 43%,
+            var(--runner-sky-last) 100%
+        );
+    cursor: pointer;
+    touch-action: manipulation;
+    user-select: none;
+}
+
+.runner-stage--biome-crater {
+    --runner-sky-first: #f4eadb;
+    --runner-sky-middle: #f0e2d0;
+    --runner-sky-last: #e7d2bb;
+    --runner-scene-glow: rgb(240 190 139 / 42%);
+    --runner-ground-first: #e4d0b6;
+    --runner-ground-last: #d8c0a3;
+}
+
+.runner-stage--biome-violet {
+    --runner-sky-first: #eee9f3;
+    --runner-sky-middle: #e5e0ef;
+    --runner-sky-last: #d5d9e9;
+    --runner-scene-glow: rgb(190 185 223 / 43%);
+    --runner-ground-first: #d5d2e2;
+    --runner-ground-last: #c4c6dc;
+}
+
+.runner-stage:focus-visible {
+    outline: 3px solid #e69b70;
+    outline-offset: 3px;
+}
+
+.runner-stars {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.runner-stars--one {
+    opacity: 0.68;
+    background-image:
+        radial-gradient(circle, #768f83 1px, transparent 1.5px),
+        radial-gradient(circle, #fffefa 1px, transparent 1.5px),
+        radial-gradient(circle, #93aa9c 1px, transparent 1.5px);
+    background-position:
+        23px 34px,
+        91px 72px,
+        171px 22px;
+    background-size:
+        143px 94px,
+        187px 127px,
+        241px 151px;
+}
+
+.runner-stars--two {
+    opacity: 0.36;
+    background-image: radial-gradient(circle, #fffefa 1.5px, transparent 2px);
+    background-position: 62px 51px;
+    background-size: 217px 167px;
+}
+
+.runner-stage::after {
+    position: absolute;
+    z-index: 1;
+    top: 17px;
+    right: 18px;
+    color: #84938a;
+    content: attr(data-biome);
+    font-size: 8px;
+    font-weight: 750;
+    letter-spacing: 0.15em;
+}
+
+.runner-stage--biome-crater .runner-moon {
+    filter: hue-rotate(15deg) saturate(1.05);
+}
+
+.runner-stage--biome-violet .runner-moon {
+    filter: hue-rotate(225deg) saturate(0.8);
+}
+
+.runner-moon {
+    position: absolute;
+    top: 16%;
+    right: 15%;
+    width: clamp(68px, 9vw, 106px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background:
+        radial-gradient(
+            circle at 30% 35%,
+            rgb(204 177 143 / 23%) 0 7%,
+            transparent 7.5%
+        ),
+        radial-gradient(
+            circle at 68% 63%,
+            rgb(204 177 143 / 19%) 0 10%,
+            transparent 10.5%
+        ),
+        radial-gradient(
+            circle at 38% 72%,
+            rgb(204 177 143 / 16%) 0 5%,
+            transparent 5.5%
+        ),
+        #f2d9b8;
+    box-shadow: 0 0 48px rgb(241 216 185 / 52%);
+    opacity: 0.9;
+    transition: transform 8s ease;
+}
+
+.runner-stage--playing .runner-moon {
+    transform: translateX(18px);
+}
+
+.runner-orbit {
+    position: absolute;
+    top: 21%;
+    right: 9%;
+    width: clamp(85px, 12vw, 137px);
+    aspect-ratio: 1;
+    border: 1px solid rgb(128 157 140 / 31%);
+    border-radius: 50%;
+    transform: rotate(-24deg) scaleY(0.35);
+}
+
+.runner-orbit--two {
+    top: 13%;
+    right: 5%;
+    width: clamp(108px, 16vw, 177px);
+    border-color: rgb(128 157 140 / 19%);
+    transform: rotate(24deg) scaleY(0.35);
+}
+
+.runner-spark {
+    position: absolute;
+    color: #8ea99a;
+    font-size: 17px;
+    line-height: 1;
+}
+
+.runner-spark--one {
+    top: 24%;
+    right: 39%;
+    font-size: 13px;
+}
+
+.runner-spark--two {
+    top: 51%;
+    right: 7%;
+    font-size: 26px;
+}
+
+.runner-spark--three {
+    top: 17%;
+    left: 47%;
+    color: #d4936d;
+    font-size: 12px;
+}
+
+.runner-stage-caption {
+    position: absolute;
+    top: 17px;
+    left: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #84938a;
+    font-size: 8px;
+    font-weight: 750;
+    letter-spacing: 0.15em;
+}
+
+.runner-caption-dot {
+    width: 6px;
+    height: 6px;
+}
+
+.runner-stage--playing .runner-caption-dot {
+    background: #df9568;
+    box-shadow: 0 0 0 3px rgb(223 149 104 / 16%);
+    animation: runner-pulse 1.2s ease-in-out infinite;
+}
+
+.runner-stage-prompt {
+    position: absolute;
+    top: 39%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #5e726c;
+    font-size: 11px;
+    font-weight: 650;
+    transform: translate(-50%, -50%);
+    animation: runner-float 2.8s ease-in-out infinite;
+    white-space: nowrap;
+}
+
+.runner-prompt-icon {
+    display: grid;
+    width: 29px;
+    height: 29px;
+    place-items: center;
+    border: 1px solid rgb(99 128 111 / 18%);
+    border-radius: 50%;
+    background: rgb(255 254 250 / 49%);
+    color: #64816f;
+}
+
+.runner-player {
+    position: absolute;
+    z-index: 3;
+    width: 52px;
+    height: 69px;
+    transform: translateX(-50%);
+    will-change: bottom;
+}
+
+.runner-sprite {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.runner-player--airborne .runner-sprite {
+    transform: rotate(-7deg);
+}
+
+.runner-stage--playing
+    .runner-player:not(.runner-player--airborne)
+    .runner-sprite {
+    animation: runner-bob 0.24s ease-in-out infinite alternate;
+}
+
+.runner-obstacle {
+    position: absolute;
+    z-index: 2;
+    bottom: 24px;
+    display: flex;
+    align-items: end;
+}
+
+.runner-obstacle svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.runner-ground {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 25px;
+    background:
+        radial-gradient(
+            ellipse at 18% 0%,
+            rgb(134 166 145 / 21%),
+            transparent 44%
+        ),
+        linear-gradient(
+            180deg,
+            var(--runner-ground-first),
+            var(--runner-ground-last)
+        );
+}
+
+.runner-ground-line {
+    position: absolute;
+    z-index: 4;
+    right: 0;
+    bottom: 24px;
+    left: 0;
+    height: 1px;
+    background: rgb(99 130 111 / 34%);
+    box-shadow: 0 2px 0 rgb(255 255 255 / 27%);
+    pointer-events: none;
+}
+
+.runner-card-footer {
+    display: flex;
+    min-height: 63px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 3px 0;
+}
+
+.runner-game-message {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    gap: 9px;
+    color: #79858c;
+    font-size: 10px;
+}
+
+.runner-message-indicator {
+    flex: 0 0 auto;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #9aaca0;
+}
+
+.runner-message-indicator--playing {
+    background: #d98f67;
+    box-shadow: 0 0 0 3px rgb(217 143 103 / 15%);
+}
+
+.runner-message-indicator--over {
+    background: #cd7561;
+}
+
+.runner-action {
+    display: inline-flex;
+    min-width: 145px;
+    height: 42px;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 0 14px;
+    border: 0;
+    border-radius: 9px;
+    background: var(--runner-ink);
+    color: #fffefa;
+    cursor: pointer;
+    font: inherit;
+    font-size: 11px;
+    font-weight: 650;
+    transition:
+        background 160ms ease,
+        transform 160ms ease;
+}
+
+.runner-action:hover {
+    background: #2b3e53;
+    transform: translateY(-1px);
+}
+
+.runner-action:active {
+    transform: translateY(0);
+}
+
+.runner-action:focus-visible {
+    outline: 3px solid #e69b70;
+    outline-offset: 3px;
+}
+
+.runner-action--playing {
+    background: #7f9b87;
+}
+
+.runner-action--playing:hover {
+    background: #6d8b76;
+}
+
+.runner-button-key {
+    margin-left: 4px;
+    padding: 4px 5px;
+    border: 1px solid rgb(255 255 255 / 27%);
+    border-radius: 4px;
+    color: #dbe3da;
+    font-size: 7px;
+    letter-spacing: 0.1em;
+}
+
+.runner-storage-note {
+    margin: 0;
+    padding: 0 3px 2px;
+    color: #a5795d;
+    font-size: 9px;
+}
+
+.runner-footer {
+    display: flex;
+    min-height: 66px;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--runner-line);
+    color: #9aa29d;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+}
+
+.runner-footer-center {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: #8b9690;
+}
+
+.runner-footer-center span {
+    width: 5px;
+    height: 5px;
+}
+
+.runner-footer-year {
+    margin-left: 6px;
+    color: #b2b9b3;
+}
+
+.dark .runner-page {
+    --runner-ink: #edf0e9;
+    --runner-muted: #a4afb3;
+    --runner-line: #293540;
+    background:
+        radial-gradient(
+            ellipse at 86% 9%,
+            rgb(58 82 79 / 28%),
+            transparent 26rem
+        ),
+        #111920;
+    color: var(--runner-ink);
+}
+
+.dark .runner-brand-light,
+.dark .runner-game-message,
+.dark .runner-intro-copy {
+    color: #a3aeb1;
+}
+
+.dark .runner-brand-mark {
+    background: #e3e9de;
+    color: #1b2932;
+}
+
+.dark .runner-topbar-meta,
+.dark .runner-eyebrow,
+.dark .runner-stat-label,
+.dark .runner-howto-heading,
+.dark .runner-card-kicker,
+.dark .runner-scoreboard span,
+.dark .runner-footer,
+.dark .runner-stage-caption,
+.dark .runner-stage::after {
+    color: #98a6a6;
+}
+
+.dark .runner-topbar-divider,
+.dark .runner-stat-rule,
+.dark .runner-score-divider {
+    background: #34414a;
+}
+
+.dark .runner-about-link {
+    color: #c1ccca;
+}
+
+.dark .runner-about-link:hover {
+    color: #efb18a;
+}
+
+.dark .runner-theme-button,
+.dark .runner-fullscreen-button {
+    border-color: #34414a;
+    background: #1b2730;
+    color: #d9e3dc;
+}
+
+.dark .runner-theme-button:hover,
+.dark .runner-fullscreen-button:hover {
+    border-color: #50645c;
+    background: #26363c;
+    color: #f0c69e;
+}
+
+.dark .runner-eyebrow span {
+    border-color: #3a474c;
+    color: #efaa7d;
+}
+
+.dark .runner-intro h1 span {
+    color: #9cbea5;
+}
+
+.dark .runner-stat-icon {
+    background: #382e2a;
+    color: #efad80;
+}
+
+.dark .runner-stat-icon--mint {
+    background: #273934;
+    color: #a5c5a9;
+}
+
+.dark .runner-stat strong,
+.dark .runner-scoreboard strong {
+    color: #edf0e9;
+}
+
+.dark .runner-stat strong small {
+    color: #9ba8a7;
+}
+
+.dark .runner-key {
+    border-color: #3a4549;
+    background: #1c272d;
+    color: #d5dfd9;
+}
+
+.dark .runner-game-card {
+    border-color: #2a3740;
+    background: #182129;
+    box-shadow:
+        0 18px 55px rgb(0 0 0 / 23%),
+        0 2px 6px rgb(0 0 0 / 14%);
+}
+
+.dark .runner-game-card:fullscreen {
+    background: #111920;
+}
+
+.dark .runner-game-card:fullscreen::backdrop {
+    background: #111920;
+}
+
+.dark .runner-stage {
+    --runner-sky-first: #24383c;
+    --runner-sky-middle: #1f3038;
+    --runner-sky-last: #192630;
+    --runner-scene-glow: rgb(96 135 120 / 30%);
+    --runner-ground-first: #344a45;
+    --runner-ground-last: #293d3a;
+}
+
+.dark .runner-stage--biome-crater {
+    --runner-sky-first: #423638;
+    --runner-sky-middle: #362d37;
+    --runner-sky-last: #292a38;
+    --runner-scene-glow: rgb(179 110 75 / 27%);
+    --runner-ground-first: #57443d;
+    --runner-ground-last: #44363a;
+}
+
+.dark .runner-stage--biome-violet {
+    --runner-sky-first: #38354d;
+    --runner-sky-middle: #2d3045;
+    --runner-sky-last: #222b3c;
+    --runner-scene-glow: rgb(132 112 184 / 29%);
+    --runner-ground-first: #48465f;
+    --runner-ground-last: #383b53;
+}
+
+.dark .runner-stars--one {
+    opacity: 0.88;
+    filter: brightness(1.5);
+}
+
+.dark .runner-stars--two {
+    opacity: 0.62;
+}
+
+.dark .runner-orbit {
+    border-color: rgb(200 219 205 / 26%);
+}
+
+.dark .runner-orbit--two {
+    border-color: rgb(200 219 205 / 17%);
+}
+
+.dark .runner-spark {
+    color: #b6c8ba;
+}
+
+.dark .runner-stage-prompt {
+    color: #d0ddd5;
+}
+
+.dark .runner-prompt-icon {
+    border-color: rgb(210 228 214 / 23%);
+    background: rgb(24 35 40 / 60%);
+    color: #c4d9c8;
+}
+
+.dark .runner-ground {
+    background:
+        radial-gradient(
+            ellipse at 18% 0%,
+            rgb(190 216 190 / 12%),
+            transparent 44%
+        ),
+        linear-gradient(
+            180deg,
+            var(--runner-ground-first),
+            var(--runner-ground-last)
+        );
+}
+
+.dark .runner-ground-line {
+    background: rgb(204 224 207 / 30%);
+    box-shadow: 0 2px 0 rgb(255 255 255 / 5%);
+}
+
+.dark .runner-card-title strong {
+    color: #edf0e9;
+}
+
+.dark .runner-action {
+    background: #d9e6d9;
+    color: #1b2932;
+}
+
+.dark .runner-action:hover {
+    background: #e8eee1;
+}
+
+.dark .runner-action--playing {
+    background: #8eaf91;
+}
+
+.dark .runner-action--playing:hover {
+    background: #a1c0a3;
+}
+
+.dark .runner-button-key {
+    border-color: rgb(27 41 50 / 26%);
+    color: #344b4d;
+}
+
+.dark .runner-message-indicator {
+    background: #a0b7a3;
+}
+
+.dark .runner-message-indicator--playing {
+    background: #e6a075;
+}
+
+.dark .runner-message-indicator--over {
+    background: #db8974;
+}
+
+.dark .runner-footer-year {
+    color: #77868a;
+}
+
+.dark .runner-storage-note {
+    color: #e1a47d;
+}
+
+@keyframes runner-float {
+    0%,
+    100% {
+        transform: translate(-50%, -50%);
+    }
+    50% {
+        transform: translate(-50%, calc(-50% - 5px));
+    }
+}
+
+@keyframes runner-bob {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-2px);
+    }
+}
+
+@keyframes runner-pulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@media (max-width: 880px) {
+    .runner-topbar,
+    .runner-content,
+    .runner-footer {
+        width: min(760px, calc(100% - 48px));
+    }
+
+    .runner-content {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding-block: 44px 58px;
+    }
+
+    .runner-intro {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        column-gap: 25px;
+        align-items: end;
+    }
+
+    .runner-eyebrow,
+    .runner-intro h1,
+    .runner-intro-copy {
+        grid-column: 1;
+    }
+
+    .runner-intro h1 {
+        margin-top: 17px;
+        font-size: clamp(48px, 8vw, 62px);
+    }
+
+    .runner-intro-copy {
+        max-width: 400px;
+    }
+
+    .runner-stats {
+        grid-column: 2;
+        grid-row: 2 / span 2;
+        margin: 0 0 2px;
+    }
+
+    .runner-howto {
+        display: none;
+    }
+
+    .runner-stage {
+        height: clamp(270px, 44vw, 340px);
+    }
+
+    .runner-footer {
+        min-height: 58px;
+    }
+}
+
+@media (max-width: 580px) {
+    .runner-topbar,
+    .runner-content,
+    .runner-footer {
+        width: calc(100% - 32px);
+    }
+
+    .runner-topbar {
+        height: 70px;
+    }
+
+    .runner-topbar-meta {
+        gap: 7px;
+        font-size: 7px;
+        letter-spacing: 0.1em;
+    }
+
+    .runner-topbar-meta .runner-topbar-divider,
+    .runner-topbar-meta > span:last-child {
+        display: none;
+    }
+
+    .runner-about-link {
+        font-size: 0;
+    }
+
+    .runner-about-link svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .runner-topbar-actions {
+        gap: 10px;
+    }
+
+    .runner-theme-button {
+        width: 32px;
+        height: 32px;
+    }
+
+    .runner-content {
+        gap: 24px;
+        padding-block: 34px 40px;
+    }
+
+    .runner-intro {
+        grid-template-columns: 1fr;
+    }
+
+    .runner-intro h1 {
+        margin: 16px 0 11px;
+        font-size: clamp(45px, 13vw, 60px);
+    }
+
+    .runner-intro-copy {
+        max-width: 350px;
+        font-size: 12px;
+    }
+
+    .runner-stats {
+        grid-column: 1;
+        grid-row: auto;
+        gap: 16px;
+        margin-top: 22px;
+    }
+
+    .runner-game-card {
+        padding: 13px;
+        border-radius: 15px;
+    }
+
+    .runner-card-header {
+        min-height: 48px;
+        padding: 0 2px 12px;
+    }
+
+    .runner-card-title strong {
+        font-size: 14px;
+    }
+
+    .runner-scoreboard {
+        gap: 9px;
+    }
+
+    .runner-scoreboard strong {
+        font-size: 10px;
+    }
+
+    .runner-stage {
+        height: 250px;
+        border-radius: 10px;
+    }
+
+    .runner-moon {
+        right: 11%;
+    }
+
+    .runner-orbit {
+        right: 4%;
+    }
+
+    .runner-stage-caption {
+        top: 14px;
+        left: 13px;
+        font-size: 7px;
+    }
+
+    .runner-stage::after {
+        top: 14px;
+        right: 13px;
+        font-size: 7px;
+    }
+
+    .runner-stage-prompt {
+        top: 35%;
+        font-size: 9px;
+    }
+
+    .runner-player {
+        width: 44px;
+        height: 60px;
+    }
+
+    .runner-card-footer {
+        min-height: 64px;
+        gap: 8px;
+        padding-top: 11px;
+    }
+
+    .runner-game-message {
+        gap: 7px;
+        font-size: 9px;
+        line-height: 1.45;
+    }
+
+    .runner-action {
+        min-width: 104px;
+        height: 40px;
+        gap: 7px;
+        padding-inline: 10px;
+        font-size: 10px;
+    }
+
+    .runner-button-key {
+        display: none;
+    }
+
+    .runner-footer {
+        min-height: 51px;
+        font-size: 7px;
+        letter-spacing: 0.08em;
+    }
+
+    .runner-footer-center {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .runner-stage-prompt,
+    .runner-stage--playing
+        .runner-player:not(.runner-player--airborne)
+        .runner-sprite,
+    .runner-stage--playing .runner-caption-dot {
+        animation: none;
+    }
+
+    .runner-about-link,
+    .runner-action,
+    .runner-fullscreen-button,
+    .runner-theme-button,
+    .runner-moon {
+        transition: none;
+    }
+}
