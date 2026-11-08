@@ -384,10 +384,22 @@
 }
 
 .runner-card-kicker {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     color: #929c96;
     font-size: 8px;
     font-weight: 750;
     letter-spacing: 0.16em;
+}
+
+.runner-pace {
+    padding: 3px 5px;
+    border: 1px solid #e8e5d9;
+    border-radius: 4px;
+    color: #b37a53;
+    font-size: 7px;
+    letter-spacing: 0.1em;
 }
 
 .runner-card-title strong {
@@ -890,6 +902,11 @@
 .dark .runner-stage-caption,
 .dark .runner-stage::after {
     color: #98a6a6;
+}
+
+.dark .runner-pace {
+    border-color: #51443b;
+    color: #efb18a;
 }
 
 .dark .runner-topbar-divider,

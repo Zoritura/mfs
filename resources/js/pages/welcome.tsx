@@ -32,11 +32,18 @@ const BIOMES = [
     { name: 'VIOLET SKY', className: 'violet' },
 ] as const;
 const OBSTACLE_SHAPES = ['crystal', 'rock', 'spike', 'cactus'] as const;
+const DIFFICULTY_STAGES = [
+    { score: 0, name: 'WARM-UP' },
+    { score: 180, name: 'STEADY' },
+    { score: 400, name: 'QUICKENING' },
+    { score: 650, name: 'INTENSE' },
+    { score: 900, name: 'ORBITAL' },
+] as const;
 const PLAYER_HITBOX_WIDTH = 30;
 const PLAYER_HITBOX_HEIGHT = 63;
 const PLAYER_LEFT_RATIO = 0.13;
 const GRAVITY = 1850;
-const JUMP_POWER = 680;
+const JUMP_POWER = 620;
 
 function RunnerSprite() {
     return (
@@ -220,6 +227,10 @@ export default function Welcome() {
 
     statusRef.current = status;
     const biome = BIOMES[Math.floor(score / 120) % BIOMES.length];
+    const difficultyStage = DIFFICULTY_STAGES.reduce(
+        (stage, nextStage) => (score >= nextStage.score ? nextStage : stage),
+        DIFFICULTY_STAGES[0],
+    );
     const themeToggleLabel =
         resolvedAppearance === 'dark'
             ? 'Switch to light mode'
@@ -358,7 +369,8 @@ export default function Welcome() {
 
             const currentScore = Math.floor(elapsedRef.current * 10);
             const stageWidth = stageRef.current?.clientWidth ?? 800;
-            const speed = Math.min(330 + currentScore * 0.075, 520);
+            const difficulty = Math.min(currentScore / 900, 1);
+            const speed = 390 + difficulty * 300;
             const playerCenter = stageWidth * PLAYER_LEFT_RATIO;
             const groundHeight = 24;
 
@@ -384,27 +396,56 @@ export default function Welcome() {
                     OBSTACLE_SHAPES[
                         Math.floor(Math.random() * OBSTACLE_SHAPES.length)
                     ];
+                const sizeScale = 1 + difficulty * 0.16;
                 const dimensions =
                     shape === 'rock'
                         ? {
-                              width: 40 + Math.random() * 18,
-                              height: 34 + Math.random() * 15,
+                              width: (40 + Math.random() * 18) * sizeScale,
+                              height: (34 + Math.random() * 15) * sizeScale,
                           }
                         : shape === 'spike'
-                          ? { width: 38, height: 54 }
+                          ? {
+                                width: 38 * sizeScale,
+                                height: 54 * sizeScale,
+                            }
                           : shape === 'cactus'
-                            ? { width: 34, height: 49 }
+                            ? {
+                                  width: 34 * sizeScale,
+                                  height: 49 * sizeScale,
+                              }
                             : {
-                                  width: 34 + Math.random() * 12,
-                                  height: 45 + Math.random() * 13,
+                                  width: (34 + Math.random() * 12) * sizeScale,
+                                  height: (45 + Math.random() * 13) * sizeScale,
                               };
-                obstaclesRef.current.push({
-                    id: nextObstacleIdRef.current++,
-                    x: stageWidth + 16,
-                    ...dimensions,
-                    shape,
-                });
-                spawnTimer = 1.25 + Math.random() * 0.65;
+                const obstacleCount =
+                    currentScore >= 1100 && Math.random() < difficulty * 0.14
+                        ? 3
+                        : currentScore >= 400 &&
+                            Math.random() < 0.12 + difficulty * 0.2
+                          ? 2
+                          : 1;
+
+                for (let index = 0; index < obstacleCount; index++) {
+                    obstaclesRef.current.push({
+                        id: nextObstacleIdRef.current++,
+                        x: stageWidth + 16 + index * (dimensions.width + 20),
+                        ...dimensions,
+                        shape:
+                            index === 0
+                                ? shape
+                                : OBSTACLE_SHAPES[
+                                      Math.floor(
+                                          Math.random() *
+                                              OBSTACLE_SHAPES.length,
+                                      )
+                                  ],
+                    });
+                }
+
+                spawnTimer =
+                    1 -
+                    difficulty * 0.38 +
+                    Math.random() * (0.55 - difficulty * 0.25);
             }
 
             const nextObstacles = obstaclesRef.current
@@ -583,6 +624,9 @@ export default function Welcome() {
                             <div className="runner-card-title">
                                 <span className="runner-card-kicker">
                                     MISSION CONTROL
+                                    <span className="runner-pace">
+                                        {difficultyStage.name}
+                                    </span>
                                 </span>
                                 <strong>Moon Runner</strong>
                             </div>
