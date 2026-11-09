@@ -449,6 +449,9 @@
     --runner-scene-glow: rgb(188 214 197 / 40%);
     --runner-ground-first: #d2e0d7;
     --runner-ground-last: #c8dacf;
+    --runner-ridge-far: #c4d6c9;
+    --runner-ridge-near: #aac3af;
+    --runner-ridge-crater: #91aa96;
     height: clamp(245px, 29vw, 326px);
     overflow: hidden;
     border-radius: 12px;
@@ -476,6 +479,9 @@
     --runner-scene-glow: rgb(240 190 139 / 42%);
     --runner-ground-first: #e4d0b6;
     --runner-ground-last: #d8c0a3;
+    --runner-ridge-far: #e3c9ab;
+    --runner-ridge-near: #d0b18f;
+    --runner-ridge-crater: #b39375;
 }
 
 .runner-stage--biome-violet {
@@ -485,6 +491,9 @@
     --runner-scene-glow: rgb(190 185 223 / 43%);
     --runner-ground-first: #d5d2e2;
     --runner-ground-last: #c4c6dc;
+    --runner-ridge-far: #d0cde0;
+    --runner-ridge-near: #b7b8d0;
+    --runner-ridge-crater: #9c9fbe;
 }
 
 .runner-stage:focus-visible {
@@ -617,6 +626,44 @@
     left: 47%;
     color: #d4936d;
     font-size: 12px;
+}
+
+.runner-landscape {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    bottom: 24px;
+    left: 0;
+    width: 100%;
+    height: 42%;
+    overflow: visible;
+    pointer-events: none;
+}
+
+.runner-landscape-far {
+    fill: var(--runner-ridge-far);
+    opacity: 0.62;
+}
+
+.runner-landscape-near {
+    fill: var(--runner-ridge-near);
+    opacity: 0.76;
+}
+
+.runner-landscape-crater {
+    fill: none;
+    stroke: var(--runner-ridge-crater);
+    stroke-linecap: round;
+    stroke-width: 1.5;
+    opacity: 0.42;
+}
+
+.runner-stage--playing .runner-landscape-far {
+    animation: runner-parallax 12s ease-in-out infinite alternate;
+}
+
+.runner-stage--playing .runner-landscape-near {
+    animation: runner-parallax 8s ease-in-out infinite alternate-reverse;
 }
 
 .runner-stage-caption {
@@ -994,6 +1041,9 @@
     --runner-scene-glow: rgb(96 135 120 / 30%);
     --runner-ground-first: #344a45;
     --runner-ground-last: #293d3a;
+    --runner-ridge-far: #405850;
+    --runner-ridge-near: #354943;
+    --runner-ridge-crater: #60766a;
 }
 
 .dark .runner-stage--biome-crater {
@@ -1003,6 +1053,9 @@
     --runner-scene-glow: rgb(179 110 75 / 27%);
     --runner-ground-first: #57443d;
     --runner-ground-last: #44363a;
+    --runner-ridge-far: #594943;
+    --runner-ridge-near: #493c3c;
+    --runner-ridge-crater: #795b4b;
 }
 
 .dark .runner-stage--biome-violet {
@@ -1012,6 +1065,9 @@
     --runner-scene-glow: rgb(132 112 184 / 29%);
     --runner-ground-first: #48465f;
     --runner-ground-last: #383b53;
+    --runner-ridge-far: #4a4863;
+    --runner-ridge-near: #3b3d58;
+    --runner-ridge-crater: #62617d;
 }
 
 .dark .runner-stars--one {
@@ -1136,6 +1192,15 @@
     }
     50% {
         opacity: 0.5;
+    }
+}
+
+@keyframes runner-parallax {
+    from {
+        transform: translateX(-5px);
+    }
+    to {
+        transform: translateX(5px);
     }
 }
 
@@ -1356,7 +1421,9 @@
     .runner-stage--playing
         .runner-player:not(.runner-player--airborne)
         .runner-sprite,
-    .runner-stage--playing .runner-caption-dot {
+    .runner-stage--playing .runner-caption-dot,
+    .runner-stage--playing .runner-landscape-far,
+    .runner-stage--playing .runner-landscape-near {
         animation: none;
     }
 

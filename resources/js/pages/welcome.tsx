@@ -700,6 +700,25 @@ export default function Welcome() {
                             <span className="runner-spark runner-spark--three">
                                 ✦
                             </span>
+                            <svg
+                                aria-hidden="true"
+                                className="runner-landscape"
+                                viewBox="0 0 800 180"
+                                preserveAspectRatio="none"
+                            >
+                                <path
+                                    className="runner-landscape-far"
+                                    d="M0 180V112l58-33 48 17 74-54 57 42 57-22 61 47 64-66 59 39 61-19 71 52 68-27 51 24v68H0Z"
+                                />
+                                <path
+                                    className="runner-landscape-near"
+                                    d="M0 180v-35l64-25 64 8 81-34 75 28 72-13 76 35 68-28 68 13 77-31 86 31 69-16v67H0Z"
+                                />
+                                <path
+                                    className="runner-landscape-crater"
+                                    d="M0 145c98-16 171-12 251 4m93-22c72-12 129-8 196 8m93 5c57-11 110-9 167 2"
+                                />
+                            </svg>
                             <div className="runner-stage-caption">
                                 <span className="runner-caption-dot" />
                                 <span>
